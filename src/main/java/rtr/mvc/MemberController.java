@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value="/")
@@ -26,8 +27,8 @@ public class MemberController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public String checkMember()
+    public String checkMember(@RequestParam(value="courseCode") String courseCode, HttpServletRequest request)
     {
-        return "index";
+        return "prof/startPresentation?courseCode=" + courseCode;
     }
 }

@@ -15,13 +15,13 @@
 		<form method="POST" action="">
 			<table>
 				<tr>
-					<td align="right"><p id="text">Username:</p></td>
+					<td align="right"><p id="text">User Id:</p></td>
 					<td align="left"><input type="text" name="j_username">
 					</td>
 				</tr>
 				<tr>
-					<td align="right"><p id="text">Password:</p></td>
-					<td align="left"><input type="password" name="j_password"></td>
+					<td align="right"><p id="text">Course Code:</p></td>
+					<td align="left"><input type="password" name="courseCode"></td>
 				</tr>
 				<tr>
 					<td align="right"><input type="submit" value="Log In"></td>
