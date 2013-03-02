@@ -8,8 +8,10 @@
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
-	$("#slider-step" ).bind("change", function(event, ui) {
-		$.post('audienceResponse', ui.value);
+	$(function() {
+		$("#slider-step" ).slider().bind("slidestart", function(event, ui) {
+			$.post('audienceResponse', ui.value);
+		});
 	});
 </script>
 </head>

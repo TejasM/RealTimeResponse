@@ -5,14 +5,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
 
 import rtr.domain.Point;
 import rtr.domain.Receptiveness;
-
-import java.util.Map;
-
-
-import org.springframework.stereotype.Service;
 
 @Service
 public class ReceptivenessService implements ReceptivenessInterface {
@@ -28,9 +26,9 @@ public class ReceptivenessService implements ReceptivenessInterface {
 		Map<String, List<Point>> currentSession = getMap().get(courseId);
 		Date date = new Date();
 		Receptiveness totalReceptiveness = new Receptiveness();
-		for (List<Point> points: currentSession.values()){
-			totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
-		}
+//		for (List<Point> points: currentSession.values()){
+//			totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
+//		}
 		return totalReceptiveness;
 	}
 	

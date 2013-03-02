@@ -3,23 +3,21 @@
 <%@include file="../template/template.jsp"%>
 
 <html>
-
-<head>
-<title>Spring MVC Starter Application</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript">
-	$(function(){
-		setInterval(updatePercentage, 1000);
-	});
-	function updatePercentage() {
-		$.get('statistics', function(data) {
-			$('#percentage').html(data);
-		});
-	}
-</script>
-</head>
-
 <body>
-	<div id="percentage"></div>
+	<script type="text/javascript">
+		$(function(){
+			setInterval(updatePercentage, 1000);
+		});
+		function updatePercentage() {
+			$.get('statistics', function(data) {
+				$('#value1').html(data.value1);
+				$('#value2').html(data.value2);
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				alert("Error" + errorThrown);
+			});
+		}
+	</script>
+	<div id="value1"></div>
+	<div id="value2"></div>
 </body>
 </html>
