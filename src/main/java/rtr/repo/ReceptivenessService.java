@@ -65,4 +65,9 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	public void setMap(Map<String, Map<String, List<Point>>> map) {
 		this.map = map;
 	}
+
+	@Override
+	public void startTrackingSession(String courseId) {
+		map.put(courseId, new HashMap<String, List<Point>>());
+	}
 }
