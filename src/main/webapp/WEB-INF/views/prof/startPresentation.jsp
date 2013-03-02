@@ -12,7 +12,7 @@
 
 <body>
 	<div id="box">
-		<form:form action="startPresentation"><a:input type="button"/> </form:form>
+		<form action="prof/startPresentation"><input type="submit" value="Start Session"/> </form>
 	</div>
 </body>
 </html>

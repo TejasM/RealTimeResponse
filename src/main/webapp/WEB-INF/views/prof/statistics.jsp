@@ -8,6 +8,14 @@
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+<script type="text/javascript">
+	$(function(){
+		setInterval(hello,1000);
+	});
+	function hello() {
+		console.log("hello");
+	}
+</script>
 </head>
 
 <body>
