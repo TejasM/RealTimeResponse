@@ -26,9 +26,9 @@ public class ReceptivenessService implements ReceptivenessInterface {
 		Map<String, List<Point>> currentSession = getMap().get(courseId);
 		Date date = new Date();
 		Receptiveness totalReceptiveness = new Receptiveness();
-//		for (List<Point> points: currentSession.values()){
-//			totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
-//		}
+		for (List<Point> points: currentSession.values()){
+			totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
+		}
 		return totalReceptiveness;
 	}
 	
