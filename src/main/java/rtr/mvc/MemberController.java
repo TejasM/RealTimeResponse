@@ -1,17 +1,15 @@
 package rtr.mvc;
 
- import javax.validation.Valid;
+ import javax.servlet.http.HttpServletRequest;
 
-import rtr.domain.Member;
-import rtr.repo.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import rtr.repo.MemberDao;
 
 @Controller
 @RequestMapping(value="/")
@@ -29,6 +27,7 @@ public class MemberController
     @RequestMapping(method=RequestMethod.POST)
     public String checkMember(@RequestParam(value="courseCode") String courseCode, HttpServletRequest request)
     {
-        return "prof/startPresentation?courseCode=" + courseCode;
+    	request.getSession().setAttribute("courseCode", courseCode);
+        return "prof/startPresentation";
     }
 }

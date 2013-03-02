@@ -12,7 +12,7 @@
 
 <body>
 	<div id="box">
-		<form:form action="startPresentation"><a:input type="button"/> </form:form>
+		${percentage}
 	</div>
 </body>
 </html>
