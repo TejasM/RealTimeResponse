@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/prof")
+@RequestMapping("/presenter")
 public class PresenterController {
 	
 	Random random = new Random();
@@ -19,7 +19,7 @@ public class PresenterController {
 	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
 	public String start(HttpServletRequest request, Model model) {
 		//TODO: use the reqs course ID to init a map service
-		return "prof/statistics";
+		return "presenter/statistics";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")

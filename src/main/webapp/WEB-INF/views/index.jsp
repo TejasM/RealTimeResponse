@@ -7,7 +7,6 @@
 <head>
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
 </head>
 
 <body>

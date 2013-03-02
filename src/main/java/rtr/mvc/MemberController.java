@@ -28,6 +28,6 @@ public class MemberController
     public String checkMember(@RequestParam(value="courseCode") String courseCode, HttpServletRequest request)
     {
     	request.getSession().setAttribute("courseCode", courseCode);
-        return "prof/startPresentation";
+        return "presenter/startPresentation";
     }
 }
