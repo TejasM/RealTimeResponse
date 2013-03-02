@@ -20,23 +20,14 @@ public class MemberController
     private MemberDao memberDao;
 
     @RequestMapping(method=RequestMethod.GET)
-    public String displaySortedMembers(Model model)
+    public String getDisplay(Model model)
     {
-        model.addAttribute("newMember", new Member());
-        model.addAttribute("members", memberDao.findAllOrderedByName());
         return "index";
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public String registerNewMember(@Valid @ModelAttribute("newMember") Member newMember, BindingResult result, Model model)
+    public String checkMember()
     {
-        if (!result.hasErrors()) {
-            memberDao.register(newMember);
-            return "redirect:/";
-        }
-        else {
-            model.addAttribute("members", memberDao.findAllOrderedByName());
-            return "index";
-        }
+        return "index";
     }
 }
