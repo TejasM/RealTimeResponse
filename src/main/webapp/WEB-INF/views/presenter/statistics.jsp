@@ -9,7 +9,7 @@
 			setInterval(updatePercentage, 1000);
 		});
 		function updatePercentage() {
-			$.get('statistics', function(data) {
+			$.post('statistics', function(data) {
 				$('#value1').html(data.value1);
 				$('#value2').html(data.value2);
 			}).fail(function(jqXHR, textStatus, errorThrown) {

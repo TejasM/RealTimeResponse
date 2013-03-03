@@ -11,8 +11,8 @@
 </head>
 
 <body>
-	<div id="box">
-		<form method="POST" action="">
+	<div id="container">
+		<form method="post" >
 			<table>
 				<tr>
 					<td align="right"><p id="text">User Id:</p></td>
@@ -24,8 +24,12 @@
 					<td align="left"><input type="password" name="courseCode"></td>
 				</tr>
 				<tr>
+					<td align="right"><p id="text">Teacher:</p></td>
+					<td align="left"><input type="text" name="isTeacher" value="Yes"/></td>
+				</tr>
+				<tr>
 					<td align="right"><input type="submit" value="Log In"></td>
-					<td align="left"><input type="reset" value="Reset"></></td>
+					<td align="left"><input type="reset" value="Reset"></td>
 				</tr>
 			</table>
 		</form>

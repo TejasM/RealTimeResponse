@@ -12,7 +12,7 @@
 
 <body>
 	<div id="box">
-		<form action="presenter/startPresentation"><input type="submit" value="Start Session"/> </form>
+		<form action="presenter/startPresentation" method="post"><input type="submit" value="Start Session"/> </form>
 	</div>
 </body>
 </html>

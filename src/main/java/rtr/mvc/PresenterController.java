@@ -21,12 +21,20 @@ public class PresenterController {
 	private ReceptivenessInterface receptiveness;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
-	public String start(HttpServletRequest request, Model model) {
+	public void initalize(HttpServletRequest request, Model model) {
 		receptiveness.startTrackingSession((String)request.getSession().getAttribute("courseId"));
-		return "presenter/statistics";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/startPresentation")
+	public String start(HttpServletRequest request, Model model) {
+		return "redirect:statistics";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")	 
+	public void initStats(HttpServletRequest request, Model model){
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/statistics")	 
 	public @ResponseBody Receptiveness refresh(HttpServletRequest request, Model model){
 		String courseId = (String) request.getSession().getAttribute("courseId");
 		return receptiveness.getReceptiveness(courseId);
