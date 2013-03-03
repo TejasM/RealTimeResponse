@@ -32,11 +32,32 @@ public class ReceptivenessService implements ReceptivenessInterface {
 				totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
 			}
 		}
-		totalReceptiveness.toPercentage();
+		//totalReceptiveness.toPercentage();
 		return totalReceptiveness;
 	}
 	
 	private Receptiveness summarizePoints(Receptiveness toReceptiveness, List<Point> points, Date date){
+		double sum1 = 0;
+		double sum2 = 0;
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MINUTE, -interval);
+		Date compareDate = cal.getTime();
+		double count = 0;
+		double alpha = ((double)2)/((double)(points.size()+1));
+		for (Point point: points){
+			if (point.getTimestamp().before(compareDate)){
+				break;
+			}			
+			sum1 += point.getValue1();
+			sum2 += point.getValue2();
+			count++;
+		}
+		sum1 = sum1*alpha;
+		sum2 = sum2*alpha;
+		return toReceptiveness.combine(new Receptiveness(sum1/count, sum2/count));
+	}
+	
+	private Receptiveness doMovingAverage(Receptiveness toReceptiveness, List<Point> points, Date date){
 		double sum1 = 0;
 		double sum2 = 0;
 		Calendar cal = Calendar.getInstance();
