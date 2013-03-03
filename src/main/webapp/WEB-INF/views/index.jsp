@@ -1,12 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 	</head>
-    <body>
+    <body>    	
 		<div data-role="page" >
 		    <form method="POST" action="">
 				<div id="container" style="background: #000000 url('resources/images/titlePage.png'); background-repeat:no-repeat;" />
