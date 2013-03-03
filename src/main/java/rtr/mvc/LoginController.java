@@ -38,8 +38,7 @@ public class LoginController
     			return "index";
     		}
     		if (member.getRole()=="ROLE_PRESENTER"){
-        		request.getSession().setAttribute("courseCode", courseCode);
-        		return "prof/startPresentation";
+        		
     		}
     	}
     	if (receptivness.getMap().containsKey(courseCode)){
@@ -47,8 +46,7 @@ public class LoginController
     	} else{
     		return "index";
     	}*/
-		request.getSession().setAttribute("courseCode", courseCode);
-		return "presenter/startPresentation";
-
+    	request.getSession().setAttribute("courseCode", courseCode);
+		return "prof/startPresentation";
     }
 }

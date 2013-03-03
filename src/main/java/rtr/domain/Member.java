@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
 public class Member implements Serializable
 {
    /** Default value included to remove warning. Remove or modify at will. **/
