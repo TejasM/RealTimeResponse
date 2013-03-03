@@ -16,7 +16,7 @@
 
 			<!--start session -->
 			<div data-role="content">
-				<input type="submit" value="Start Session" onclick="document.location.href = '${pageContext.request.contextPath}/audience/startaudience';" />
+				<input type="submit" value="Join Session" onclick="document.location.href = '${pageContext.request.contextPath}/audience/startaudience';" />
 			</div>
 
 		</div>
