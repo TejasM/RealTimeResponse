@@ -55,8 +55,9 @@
 				<h1>${courseId}</h1>
 			</div>
 			<!-- /header -->
-
+			<label for="Percent1">Understanding:</label>
 			<h1 id="Percent1" style="text-align: center"></h1>
+			<label for="Percent2">Interest:</label>
 			<h1 id="Percent2" style="text-align: center"></h1>
 
 			<div data-role="content" id="QuestionList">
