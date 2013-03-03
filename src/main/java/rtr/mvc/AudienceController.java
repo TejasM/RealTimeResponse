@@ -1,6 +1,5 @@
 package rtr.mvc;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +19,22 @@ public class AudienceController {
 	@Autowired
 	private ReceptivenessInterface receptiveness;
 	
-	@RequestMapping(method=RequestMethod.GET, value="/audienceStart")
+	@RequestMapping(method=RequestMethod.GET, value="/startaudience")
 	public void showPage() {		
 	}
 	
-	@RequestMapping(value="/audienceStart", method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.POST, value="/startaudience")
+	public String nextPage() {
+		return "redirect:audienceRunning";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/audienceRunning")
+	public void nothing() {
+	}
+	
+	@RequestMapping(value="/audienceRunning", method=RequestMethod.POST)
 	public @ResponseBody HttpStatus postResult(@RequestParam("value") String value, HttpServletRequest request) {
 		receptiveness.updateReceptiveness((String) request.getSession().getAttribute("courseId"), request.getSession().getId(), Integer.parseInt(value), 3);
 		return HttpStatus.ACCEPTED;
 	}
-
 }

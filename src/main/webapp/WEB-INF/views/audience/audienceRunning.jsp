@@ -6,20 +6,21 @@
 <head>
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
 <script type="text/javascript">
 	$(function() {
 		var slider = $("#slider-step" );
 		slider.bind("slidestop", function(event) {
 			var value = this.value;
-			$.post('audienceStart', {"value": value}).fail(function(jqXHR, textStatus, errorThrown) {
+			$.post('audienceRunning', {"value": value}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
 		});
 	});
 </script>
-</head>
-
-<body>
 	<label for="slider-step">Input slider:</label>
 	<input type="range" name="slider-step" id="slider-step" value="150"
 		min="0" max="4" step="1" />
