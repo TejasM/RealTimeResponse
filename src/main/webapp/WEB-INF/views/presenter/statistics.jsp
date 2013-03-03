@@ -41,9 +41,7 @@
 			</div>
 			<!-- /header -->
 
-			<div data-role="content" id="Percent1">
-				<input style="background-color: #;">			
-			</div>
+			<div data-role="content" id="Percent1"></div>
 			<div data-role="content" id="Percent2"></div>
 
 			<div data-role="content" id="QuestionList">
