@@ -36,7 +36,7 @@ public class ReceptivenessService implements ReceptivenessInterface {
 		int sum1 = 0;
 		int sum2 = 0;
 		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.MINUTE, interval);
+		cal.add(Calendar.MINUTE, -interval);
 		Date compareDate = cal.getTime();
 		int count = 0;
 		for (Point point: points){
