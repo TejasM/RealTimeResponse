@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
-		setInterval(updatePercentage, 1000);
+		setInterval(updatePercentage, 2000);
 		function updatePercentage() {
 			$.get('statisticsGet', function(data) {
 				$('#Percent1').html(data.value1);
@@ -17,8 +17,11 @@
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
-			$.get('questions').done(function(data) {
-				console.log(data);
+			$.get('questions').done(function(questions) {
+				$("#List").empty();
+				$.each(questions, function(index, question) {
+					$("#List").append("<li>" + question + "</li>");
+				});
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
