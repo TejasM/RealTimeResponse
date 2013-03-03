@@ -26,12 +26,9 @@
 				alert("Error" + errorThrown);
 			});
 		}
-		$("#flip-1").change(function(){
-			$("#list").toggle();
+		$("#flip-1").bind("change", function(event, ui) {
+			$("#List").toggle();
 		});
-
-		
-		
 	});
 </script>
 </head>
