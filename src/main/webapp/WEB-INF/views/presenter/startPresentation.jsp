@@ -11,7 +11,7 @@
 	<div data-role="page">
 		<div id="container">
 			<div data-role="header" class="center">
-				<h1>Page Title</h1>
+				<h1>Settings</h1>
 			</div>
 			<!-- /header -->
 
@@ -39,13 +39,9 @@
 					<input type="submit" value="Start Session" onclick="document.location.href = '${pageContext.request.contextPath}/presenter/statistics';" />
 			</div>
 
-			<div data-role="footer">
-				<h4>Page Footer</h4>
-			</div>
-			<!-- /footer -->
+
 		</div>
 	</div>
-	<!-- /page -->
 
 </body>
 </html>

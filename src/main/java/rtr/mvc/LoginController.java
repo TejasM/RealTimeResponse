@@ -31,8 +31,9 @@ public class LoginController {
 			@RequestParam(value = "Login", required = false) String username,
 			@RequestParam(value = "Password") String courseCode,
 			@RequestParam(value = "IsTeacher") String isTeacher,
-			HttpServletRequest request) {
+			HttpServletRequest request, Model model) {
 		request.getSession().setAttribute("courseId", courseCode);
+		model.addAttribute("courseId", courseCode);
 		if (isTeacher.equals("Yes")) {
 			return "presenter/startPresentation";
 		} else {

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
-		setInterval(updatePercentage, 1000);
+		setInterval(updatePercentage, 2000);
 		function updatePercentage() {
 			$.get('statisticsGet', function(data) {
 				$('#Percent1').html(data.value1);
@@ -18,12 +18,21 @@
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
-			$.get('questions').done(function(data) {
-				console.log(data);
+			$.get('questions').done(function(questions) {
+				$("#List").empty();
+				$.each(questions, function(index, question) {
+					$("#List").append("<li>" + question + "</li>");
+				});
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
 		}
+		$("#flip-1").change(function(){
+			$("#list").toggle();
+		});
+
+		
+		
 	});
 </script>
 </head>
@@ -32,11 +41,13 @@
 	<div data-role="page">
 		<div id="container">
 			<div data-role="header" class="center">
-				<h1>Page Title</h1>
+				<h1>${courseId}</h1>
 			</div>
 			<!-- /header -->
 
-			<div data-role="content" id="Percent1"></div>
+			<div data-role="content" id="Percent1">
+				<input style="background-color: #;">			
+			</div>
 			<div data-role="content" id="Percent2"></div>
 
 			<div data-role="content" id="QuestionList">

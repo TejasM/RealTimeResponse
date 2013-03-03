@@ -10,14 +10,18 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
+		var initValue = 3;
 		var slider = $("#slider-step");
 		slider.bind("slidestop", function(event) {
-			var value = this.value;
+			var value = parseInt(this.value) - initValue;
 			$.post('audienceResponse', {
 				"value" : value
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
+		});
+		slider.bind("slidestart", function(event) {
+			initValue = parseInt(this.value);
 		});
 	});
 	function postQuestion() {
@@ -36,14 +40,20 @@
 	<div data-role="page">
 		<div id="container">
 			<div data-role="header" class="center">
-				<h1>Page Title</h1>
+				<h1>${courseId}</h1>
 			</div>
 			<!-- /header -->
 
 			<div data-role="content" id="s" data-role="fieldcontain">
 				<label for="slider-step">Input slider:</label> <input data-theme="a"
 					data-track-theme="b" type="range" name="slider-step"
-					id="slider-step" value="3" min="0" max="4" step="1" />
+					id="slider-step" value="3" min="1" max="5" step="1" />
+			</div>
+		
+		 	<div data-role="content" id="s2" data-role="fieldcontain">
+				<label for="slider-step2">Input slider:</label> <input data-theme="a"
+					data-track-theme="b" type="range" name="slider-step2"
+					id="slider-step2" value="3" min="1" max="5" step="1" />
 			</div>
 
 			<div data-role="content" id="QuestionContainer"
