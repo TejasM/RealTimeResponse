@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:template>
     <jsp:attribute name="header">
@@ -19,8 +21,12 @@
 					<td align="left"><input type="password" name="courseCode"></td>
 				</tr>
 				<tr>
+					<td align="right"><p id="text">Teacher:</p></td>
+					<td align="left"><input type="text" name="isTeacher" value="Yes"/></td>
+				</tr>
+				<tr>
 					<td align="right"><input type="submit" value="Log In"></td>
-					<td align="left"><input type="reset" value="Reset"></></td>
+					<td align="left"><input type="reset" value="Reset"></td>
 				</tr>
 			</table>
 		</form>

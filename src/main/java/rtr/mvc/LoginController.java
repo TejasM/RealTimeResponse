@@ -29,7 +29,7 @@ public class LoginController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public String checkMember(@RequestParam(value="username", required=false)String username, @RequestParam(value="courseCode") String courseCode, HttpServletRequest request)
+    public String checkMember(@RequestParam(value="username", required=false)String username, @RequestParam(value="courseCode") String courseCode, @RequestParam(value="isTeacher") String isTeacher, HttpServletRequest request)
     {
     	/*if (username != null || !username.isEmpty()){
     		Member member = memberDao.findById(username);
@@ -45,7 +45,12 @@ public class LoginController
     	} else{
     		return "index";
     	}*/
-    	request.getSession().setAttribute("courseCode", courseCode);
-		return "prof/startPresentation";
+    	request.getSession().setAttribute("courseId", courseCode);
+    	if(isTeacher.equals("Yes")){
+			return "presenter/startPresentation";
+    	} else{
+    		return "audience/startaudience";
+    	}
+    	
     }
 }

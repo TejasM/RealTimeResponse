@@ -1,6 +1,7 @@
 package rtr.repo;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -23,11 +24,13 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	 */
 	@Override
 	public Receptiveness getReceptiveness(String courseId){
-		Map<String, List<Point>> currentSession = getMap().get(courseId);
+		Map<String, List<Point>> currentSession = getMap().get(courseId);		
 		Date date = new Date();
 		Receptiveness totalReceptiveness = new Receptiveness();
-		for (List<Point> points: currentSession.values()){
-			totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
+		if(currentSession != null){
+			for (List<Point> points: currentSession.values()){
+				totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
+			}
 		}
 		return totalReceptiveness;
 	}
@@ -54,8 +57,16 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	 * @see rtr.repo.ReceptivenessInterface#updateReceptiveness(java.lang.String, java.lang.String, int, int)
 	 */
 	@Override
-	public void updateReceptiveness(String courseId, String studentId, int change1, int change2){ 
-		getMap().get(courseId).get(studentId).add(new Point(new Date(), change1, change2));
+	public void updateReceptiveness(String courseId, String studentId, int value1, int value2){
+		List<Point> points = getMap().get(courseId).get(studentId);
+		int prevPoint1 = 3;
+		if (points==null){
+			points = new ArrayList<Point>();
+			getMap().get(courseId).put(studentId, points);
+		} else{
+			prevPoint1 = points.get(points.size()-1).getValue1();
+		}
+		points.add(new Point(new Date(), value1-prevPoint1,0));
 	}
 
 	public Map<String, Map<String, List<Point>>> getMap() {
