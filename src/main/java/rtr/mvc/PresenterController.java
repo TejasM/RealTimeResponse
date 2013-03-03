@@ -36,7 +36,12 @@ public class PresenterController {
 		return "redirect:/presenter/statistics";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/statistics")	 
+	@RequestMapping(method=RequestMethod.GET, value="/statistics")
+	public String go(HttpServletRequest request) {
+		return "presenter/statistics";
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/statisticsGet")	 
 	public @ResponseBody Receptiveness refresh(HttpServletRequest request, Model model){
 		String courseId = (String) request.getSession().getAttribute("courseId");
 		return receptiveness.getReceptiveness(courseId);

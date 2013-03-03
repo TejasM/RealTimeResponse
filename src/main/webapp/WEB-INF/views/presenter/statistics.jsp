@@ -3,19 +3,17 @@
 <html>
 <head>
 <title>Prof Data</title>
-<link rel="stylesheet"
-	href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
-<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-<script
-	src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
 		setInterval(updatePercentage, 1000);
 		function updatePercentage() {
-			$.post('statistics', function(data) {
-				$('#value1').html(data.value1);
-				$('#value2').html(data.value2);
+			$.get('statisticsGet', function(data) {
+				$('#Percent1').html(data.value1);
+				$('#Percent2').html(data.value2);
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
@@ -37,7 +35,8 @@
 			</div>
 			<!-- /header -->
 
-			<div data-role="content" id="Percent"></div>
+			<div data-role="content" id="Percent1"></div>
+			<div data-role="content" id="Percent2"></div>
 
 			<div data-role="content" id="QuestionList">
 				<ul id="List">

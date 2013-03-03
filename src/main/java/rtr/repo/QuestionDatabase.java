@@ -27,6 +27,10 @@ public class QuestionDatabase {
 	}
 	
 	public List<String> getQuestions(String sessionId){
+		List<String> questions = this.questions.get(sessionId);
+		if (questions == null) {
+			return new ArrayList<String>();
+		}
 		return this.questions.get(sessionId);
 	}
 }
