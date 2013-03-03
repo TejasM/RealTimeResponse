@@ -2,7 +2,6 @@ package rtr.repo;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -39,45 +38,13 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	private Receptiveness summarizePoints(Receptiveness toReceptiveness, List<Point> points, Date date){
 		double sum1 = 0;
 		double sum2 = 0;
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.MINUTE, -interval);
-		Date compareDate = cal.getTime();
-		double count = 0;
-		double alpha = ((double)2)/((double)(points.size()+1));
 		for (Point point: points){
-			if (point.getTimestamp().before(compareDate)){
-				break;
-			}			
 			sum1 += point.getValue1();
 			sum2 += point.getValue2();
-			count++;
 		}
-		sum1 = sum1*alpha;
-		sum2 = sum2*alpha;
-		return toReceptiveness.combine(new Receptiveness(sum1/count, sum2/count));
-	}
-	
-	private Receptiveness doMovingAverage(Receptiveness toReceptiveness, List<Point> points, Date date){
-		double sum1 = 0;
-		double sum2 = 0;
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.MINUTE, -interval);
-		Date compareDate = cal.getTime();
-		int count = 0;
-		double alpha = ((double)2)/((double)(points.size()+1));
-		for (Point point: points){
-			if (point.getTimestamp().before(compareDate)){
-				break;
-			}			
-			sum1 += point.getValue1()*Math.pow((1-alpha), count);
-			sum2 += point.getValue2()*Math.pow((1-alpha), count);
-			count++;
-		}
-		sum1 = sum1*alpha;
-		sum2 = sum2*alpha;
 		return toReceptiveness.combine(new Receptiveness(sum1, sum2));
 	}
-		
+	
 	/* (non-Javadoc)
 	 * @see rtr.repo.ReceptivenessInterface#updateReceptiveness(java.lang.String, java.lang.String, int, int)
 	 */
