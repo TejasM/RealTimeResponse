@@ -9,18 +9,9 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.mobile.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.3.0.css" />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
-	<%-- 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" /> --%>
-<%-- 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap-responsive.min.css" /> --%>
-  </head>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/jqm-docs.css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/jquery.mobile-1.2.0.css" />
+	</head>
   <body>
-	<div data-role="header" class="center">
-		<jsp:invoke fragment="header"/>
-	</div>      
-    <div id="body">
-      <jsp:doBody/>
-    </div>
-    <div id="pagefooter">
-      <jsp:invoke fragment="footer"/>
-    </div>
   </body>
 </html>

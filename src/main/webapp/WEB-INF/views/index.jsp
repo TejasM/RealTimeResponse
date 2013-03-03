@@ -1,11 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:template>
-    <jsp:attribute name="header">
-    </jsp:attribute>
-    <jsp:attribute name="footer">
-    </jsp:attribute>
-    <jsp:body>
+<html>
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
+	</head>
+    <body>
 		<div data-role="page" >
 		    <form method="POST" action="">
 				<div id="container" style="background: #000000 url('resources/images/titlePage.png'); background-repeat:no-repeat;" />
@@ -20,14 +21,14 @@
 				</div>
 				
 				<div data-role="content" id="IsTeacherContainer" data-role="fieldcontain">
-					<label for="IsTeacher">Course Code:</label>
+					<label for="IsTeacher">Teacher:</label>
 					<input type="text" name="IsTeacher" id="IsTeacher" value="Yes"  />
 				</div>
 				
-				<div data-role="content">
+				<div data-role="content" style="display= :inline">				
 					<input type="submit" value="Submit Button" />
 				</div>
 			</form>
 		</div>
-	 </jsp:body>
-</t:template>
+	 </body>
+</html>
