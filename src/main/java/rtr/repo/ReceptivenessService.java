@@ -47,14 +47,14 @@ public class ReceptivenessService implements ReceptivenessInterface {
 		for (Point point: points){
 			if (point.getTimestamp().before(compareDate)){
 				break;
-			}
-			count++;
+			}			
 			sum1 += point.getValue1()*Math.pow((1-alpha), count);
 			sum2 += point.getValue2()*Math.pow((1-alpha), count);
+			count++;
 		}
 		sum1 = sum1*alpha;
 		sum2 = sum2*alpha;
-		return toReceptiveness.combine(new Receptiveness(sum1/count, sum2/count));
+		return toReceptiveness.combine(new Receptiveness(sum1, sum2));
 	}
 		
 	/* (non-Javadoc)
