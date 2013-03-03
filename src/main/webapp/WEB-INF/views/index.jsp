@@ -10,7 +10,7 @@
     <body>    	
 		<div data-role="page" >
 		    <form method="POST" action="">
-				<div id="container" style="background: #000000 url('resources/images/titlePage.png'); background-repeat:no-repeat;" />
+				<div id="container" />
 				<div data-role="content" id="LoginContainer" data-role="fieldcontain">
 					<label for="Login">Login:</label>
 					<input type="text" name="Login" id="Login" value=""  />
