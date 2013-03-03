@@ -22,10 +22,10 @@
 				
 				<div data-role="content" id="IsTeacherContainer" data-role="fieldcontain">
 					<label for="IsTeacher">Teacher:</label>
-					<input type="text" name="IsTeacher" id="IsTeacher" value="Yes"  />
+					<input type="text" name="IsTeacher" id="IsTeacher" value="Yes"/>
 				</div>
 				
-				<div data-role="content" style="display= :inline">				
+				<div data-role="content" >				
 					<input type="submit" value="Submit Button" />
 				</div>
 			</form>
