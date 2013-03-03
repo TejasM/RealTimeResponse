@@ -42,7 +42,7 @@ public class PresenterController {
 		return receptiveness.getReceptiveness(courseId);
 	}
 
-	@RequestMapping(method=RequestMethod.GET, value="/")	 
+	@RequestMapping(method=RequestMethod.GET, value="/questions")	 
 	public @ResponseBody List<String> getQuestions(HttpServletRequest request, Model model){
 		String courseId = (String) request.getSession().getAttribute("courseId");
 		return questionDatabase.getQuestions(courseId);
