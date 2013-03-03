@@ -31,11 +31,6 @@ public class PresenterController {
 		receptiveness.startTrackingSession((String)request.getSession().getAttribute("courseId"));
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/startPresentation")
-	public String start(HttpServletRequest request) {
-		return "redirect:/presenter/statistics";
-	}
-	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")
 	public String go(HttpServletRequest request) {
 		return "presenter/statistics";
@@ -46,8 +41,8 @@ public class PresenterController {
 		String courseId = (String) request.getSession().getAttribute("courseId");
 		return receptiveness.getReceptiveness(courseId);
 	}
-	
-	@RequestMapping(method=RequestMethod.GET, value="/questions")	 
+
+	@RequestMapping(method=RequestMethod.GET, value="/")	 
 	public @ResponseBody List<String> getQuestions(HttpServletRequest request, Model model){
 		String courseId = (String) request.getSession().getAttribute("courseId");
 		return questionDatabase.getQuestions(courseId);

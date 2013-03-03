@@ -24,26 +24,18 @@ public class AudienceController {
 	private QuestionDatabase questionDatabase;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/startaudience")
-	public void showPage() {		
+	public String showPage() {
+		return "audience/startAudience";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value="/startaudience")
-	public String nextPage() {
-		return "redirect:audienceRunning";
-	}
-	
-	@RequestMapping(method=RequestMethod.GET, value="/audienceRunning")
-	public void nothing() {
-	}
-	
-	@RequestMapping(value="/audienceRunning", method=RequestMethod.POST)
+	@RequestMapping(value="/audienceResponse", method=RequestMethod.POST)
 	public @ResponseBody HttpStatus postChangeSlider(@RequestParam("value") String value, HttpServletRequest request) {
 		receptiveness.updateReceptiveness((String) request.getSession().getAttribute("courseId"), request.getSession().getId(), Integer.parseInt(value), 3);
 		return HttpStatus.ACCEPTED;
 	}
 	
 	@RequestMapping(value="/audienceQuestion", method=RequestMethod.POST)
-	public @ResponseBody HttpStatus postQuestion(@RequestParam("value") String question, HttpServletRequest request){
+	public @ResponseBody HttpStatus postQuestion(@RequestParam("question") String question, HttpServletRequest request){
 		questionDatabase.insertQuestion((String)request.getSession().getAttribute("courseId"), question);
 		return HttpStatus.ACCEPTED;
 	}

@@ -35,9 +35,7 @@
 
 			<!--start session -->
 			<div data-role="content">
-				<form method="POST" action="presenter/startPresentation">
 					<input type="submit" value="Start Session" onclick="document.location.href = '${pageContext.request.contextPath}/presenter/statistics';" />
-				</form>
 			</div>
 
 			<div data-role="footer">
