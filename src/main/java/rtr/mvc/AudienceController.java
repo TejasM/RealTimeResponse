@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/audience")
@@ -14,10 +15,10 @@ public class AudienceController {
 		return "audience/audience";
 	}
 	
-	@RequestMapping(value="/audienceResponse", method=RequestMethod.GET)
-	public String postResult(@RequestParam("result") String result) {
-		System.out.println(result);
-		return "audience/audience";
+	@RequestMapping(value="/audienceResponse", method=RequestMethod.POST)
+	public @ResponseBody String postResult(@RequestParam("value") String value) {
+		System.out.println(value);
+		return "OK";
 	}
 
 }
