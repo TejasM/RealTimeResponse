@@ -32,7 +32,7 @@ public class LoginController
     @RequestMapping(method=RequestMethod.POST)
     public String checkMember(@RequestParam(value="username", required=false)String username, @RequestParam(value="courseCode") String courseCode, HttpServletRequest request)
     {
-    	if (username != null || !username.isEmpty()){
+    	/*if (username != null || !username.isEmpty()){
     		Member member = memberDao.findById(username);
     		if (member==null){
     			return "index";
@@ -46,6 +46,9 @@ public class LoginController
     		return "audience/startPresentation";
     	} else{
     		return "index";
-    	}
+    	}*/
+		request.getSession().setAttribute("courseCode", courseCode);
+		return "presenter/startPresentation";
+
     }
 }

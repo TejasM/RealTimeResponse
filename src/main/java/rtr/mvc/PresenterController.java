@@ -22,9 +22,7 @@ public class PresenterController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
 	public String start(HttpServletRequest request, Model model) {
-		String courseId = (String) request.getSession().getAttribute("courseId");
-		model.addAttribute("percentage", receptiveness.getReceptiveness(courseId));
-		return "prof/statistics";
+		return "presenter/statistics";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")	 
