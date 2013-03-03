@@ -1,25 +1,23 @@
 package rtr.mvc;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import rtr.repo.ReceptivenessInterface;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value="/audience")
 public class AudienceController {
 	
-	@Autowired
-	private ReceptivenessInterface receptiveness;
+	@RequestMapping(method=RequestMethod.GET)
+	public String showPage() {
+		return "audience/audience";
+	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
-	public String start(HttpServletRequest request, Model model) {
-		return "audience/startPresentation";
+	@RequestMapping(value="/audienceResponse", method=RequestMethod.GET)
+	public String postResult(@RequestParam("result") String result) {
+		System.out.println(result);
+		return "audience/audience";
 	}
 
 }

@@ -7,12 +7,19 @@
 <head>
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+<script type="text/javascript">
+	$(function(){
+		setInterval(updatePercentage, 1000);
+	});
+	function updatePercentage() {
+		$.get('statistics', function(data) {
+			$('#percentage').html(data);
+		});
+	}
+</script>
 </head>
 
 <body>
-	<div id="box">
-		<form action="prof/startPresentation"><input type="submit" value="Start Session"/> </form>
-	</div>
+	<div id="percentage"></div>
 </body>
 </html>

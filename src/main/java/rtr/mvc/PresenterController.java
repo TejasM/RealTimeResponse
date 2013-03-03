@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import rtr.domain.Receptiveness;
 import rtr.repo.ReceptivenessInterface;
 
+
 @Controller
-@RequestMapping("/prof")
+@RequestMapping("/presenter")
 public class PresenterController {
 	
 	@Autowired

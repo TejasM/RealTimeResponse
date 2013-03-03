@@ -7,20 +7,17 @@
 <head>
 <title>Spring MVC Starter Application</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
 <script type="text/javascript">
-	$(function(){
-		setInterval(hello,1000);
+	$("#slider-step" ).bind("change", function(event, ui) {
+		$.post('audienceResponse', ui.value);
 	});
-	function hello() {
-		console.log("hello");
-	}
 </script>
 </head>
 
 <body>
-	<div id="box">
-		${percentage}
-	</div>
+	<label for="slider-step">Input slider:</label>
+	<input type="range" name="slider-step" id="slider-step" value="150"
+		min="0" max="4" step="1" />
 </body>
+
 </html>
