@@ -26,6 +26,12 @@
 				alert("Error" + errorThrown);
 			});
 		}
+		$("#flip-1").change(function(){
+			$("#list").toggle();
+		});
+
+		
+		
 	});
 </script>
 </head>
@@ -34,11 +40,13 @@
 	<div data-role="page">
 		<div id="container">
 			<div data-role="header" class="center">
-				<h1>Page Title</h1>
+				<h1>${courseId}</h1>
 			</div>
 			<!-- /header -->
 
-			<div data-role="content" id="Percent1"></div>
+			<div data-role="content" id="Percent1">
+				<input style="background-color: #;">			
+			</div>
 			<div data-role="content" id="Percent2"></div>
 
 			<div data-role="content" id="QuestionList">

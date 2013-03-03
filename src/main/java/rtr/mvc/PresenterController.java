@@ -31,7 +31,9 @@ public class PresenterController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")
-	public String go(HttpServletRequest request) {
+	public String go(HttpServletRequest request, Model model) {
+		String courseId = (String) request.getSession().getAttribute("courseId");
+		model.addAttribute("courseId", courseId);
 		return "presenter/statistics";
 	}
 	
