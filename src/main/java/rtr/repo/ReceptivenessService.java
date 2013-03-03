@@ -1,6 +1,7 @@
 package rtr.repo;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -57,10 +58,15 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	 */
 	@Override
 	public void updateReceptiveness(String courseId, String studentId, int change1, int change2){ 
-		Map<String, List<Point>> map = getMap().get(courseId);
-		if (map != null) {
-			map.get(studentId).add(new Point(new Date(), change1, change2));
+		Map<String, List<Point>> innerMap = getMap().get(courseId);
+		if (innerMap == null) {			
+			innerMap = new HashMap<String, List<Point>>();
+			map.put(courseId, innerMap);
 		}
+		if(!innerMap.containsKey(studentId)){
+			innerMap.put(studentId, new ArrayList<Point>());
+		}
+		innerMap.get(studentId).add(new Point(new Date(), change1, change2));
 	}
 
 	public Map<String, Map<String, List<Point>>> getMap() {
@@ -69,10 +75,5 @@ public class ReceptivenessService implements ReceptivenessInterface {
 
 	public void setMap(Map<String, Map<String, List<Point>>> map) {
 		this.map = map;
-	}
-
-	@Override
-	public void startTrackingSession(String courseId) {
-		map.put(courseId, new HashMap<String, List<Point>>());
 	}
 }

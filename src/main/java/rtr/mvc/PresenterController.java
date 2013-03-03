@@ -28,7 +28,6 @@ public class PresenterController {
 	
 	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
 	public void initalize(HttpServletRequest request) {
-		receptiveness.startTrackingSession((String)request.getSession().getAttribute("courseId"));
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")
