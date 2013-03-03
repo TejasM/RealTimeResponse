@@ -22,6 +22,8 @@
 
 <body>
 	<label for="slider-step">Input slider:</label>
+	
+	
 	<input type="range" name="slider-step" id="slider-step" value="150"
 		min="0" max="4" step="1" />
 </body>
