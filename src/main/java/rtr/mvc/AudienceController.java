@@ -12,7 +12,7 @@ public class AudienceController {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String showPage() {
-		return "audience/audience";
+		return "audience/startAudience";
 	}
 	
 	@RequestMapping(value="/audienceResponse", method=RequestMethod.POST)
