@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import rtr.domain.Member;
 import rtr.repo.MemberDao;
 import rtr.repo.ReceptivenessInterface;
 

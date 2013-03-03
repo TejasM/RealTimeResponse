@@ -1,16 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@include file="template/template.jsp"%>
-
-<html>
-
-<head>
-<title>Spring MVC Starter Application</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:template>
+    <jsp:attribute name="header">
+    </jsp:attribute>
+    <jsp:attribute name="footer">
+    </jsp:attribute>
+    <jsp:body>
 	<div id="box">
 		<form method="POST" action="">
 			<table>
@@ -29,6 +24,6 @@
 				</tr>
 			</table>
 		</form>
-	</div>
-</body>
-</html>
+	</div>   
+	 </jsp:body>
+</t:template>

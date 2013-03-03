@@ -1,11 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@include file="../template/template.jsp"%>
-
-<html>
-<body>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<t:template>
+	<jsp:attribute name="header">
+      <h1>Welcome</h1>
+    </jsp:attribute>
+	<jsp:attribute name="footer">
+    </jsp:attribute>
+	<jsp:body>
 	<script type="text/javascript">
-		$(function(){
+		$(function() {
 			setInterval(updatePercentage, 1000);
 		});
 		function updatePercentage() {
@@ -19,5 +24,5 @@
 	</script>
 	<div id="value1"></div>
 	<div id="value2"></div>
-</body>
-</html>
+	 </jsp:body>
+</t:template>
