@@ -16,7 +16,7 @@
 			<table>
 				<tr>
 					<td align="right"><p id="text">User Id:</p></td>
-					<td align="left"><input type="text" name="j_username">
+					<td align="left"><input type="text" name="username">
 					</td>
 				</tr>
 				<tr>
