@@ -33,14 +33,16 @@ public class Receptiveness {
 	}
 	
 	public Receptiveness combine(Receptiveness recpt){
-		return new Receptiveness((recpt.getValue1() + this.getValue1())/2, (recpt.getValue2() + this.getValue2())/2);
+		if (this.getValue1() !=0 && this.getValue2()!=0){
+			return new Receptiveness((recpt.getValue1() + this.getValue1())/2, (recpt.getValue2() + this.getValue2())/2);
+		} else {
+			return new Receptiveness(recpt.getValue1(), recpt.getValue2());
+		}
 	}
 
 	public void toPercentage(){
 		this.value1 = this.value1*100/4;
 		this.value2 = this.value2*100/4;
-		this.value1 = Math.floor(this.value1);
-		this.value1 = Math.floor(this.value2);
 	}
 
 }
