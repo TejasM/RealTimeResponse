@@ -10,18 +10,33 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
-		var initValue = 3;
-		var slider = $("#slider-step");
-		slider.bind("slidestop", function(event) {
-			var value = parseInt(this.value) - initValue;
+		var initValue1 = 3;
+		var initValue2 = 3;
+		var slider1 = $("#slider-step");
+		slider1.bind("slidestop", function(event) {
+			var value1 = parseInt(this.value) - initValue1;
 			$.post('audienceResponse', {
-				"value" : value
+				"value1" : value1,
+				"value2" : 0
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
 		});
-		slider.bind("slidestart", function(event) {
-			initValue = parseInt(this.value);
+		slider1.bind("slidestart", function(event) {
+			initValue1 = parseInt(this.value);
+		});
+		var slider2 = $("#slider-step2");
+		slider2.bind("slidestop", function(event) {
+			var value2 = parseInt(this.value) - initValue2;
+			$.post('audienceResponse', {
+				"value1" : 0,
+				"value2" : value2
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				alert("Error" + errorThrown);
+			});
+		});
+		slider2.bind("slidestart", function(event) {
+			initValue2 = parseInt(this.value);
 		});
 	});
 	function postQuestion() {
@@ -45,13 +60,13 @@
 			<!-- /header -->
 
 			<div data-role="content" id="s" data-role="fieldcontain">
-				<label for="slider-step">Input slider:</label> <input data-theme="a"
+				<label for="slider-step">Understanding:</label> <input data-theme="a"
 					data-track-theme="b" type="range" name="slider-step"
 					id="slider-step" value="3" min="1" max="5" step="1" />
 			</div>
 		
 		 	<div data-role="content" id="s2" data-role="fieldcontain">
-				<label for="slider-step2">Input slider:</label> <input data-theme="a"
+				<label for="slider-step2">Interest:</label> <input data-theme="a"
 					data-track-theme="b" type="range" name="slider-step2"
 					id="slider-step2" value="3" min="1" max="5" step="1" />
 			</div>
@@ -63,7 +78,7 @@
 			</div>
 
 			<div data-role="content">
-				<input type="submit" value="Submit Button" onclick="postQuestion()" />
+				<input type="submit" value="Submit Question" onclick="postQuestion()" />
 			</div>
 		</div>
 	</div>

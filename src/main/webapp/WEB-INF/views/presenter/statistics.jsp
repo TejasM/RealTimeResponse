@@ -10,11 +10,26 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 <script type="text/javascript">
 	$(function() {
+		function colorFromValue(value) {
+			var color;
+			if (value > 1) {
+				color = "#009933";
+			} else if (value > 0) {
+				color = "#33CC33";
+			} else if (value < -1) {
+				color = "#FF0000";	
+			} else if (value < 0) {
+				color = "#FF3300";
+			} else {
+				color = "#FFFFFF";
+			}
+			return color;
+		};
 		setInterval(updatePercentage, 2000);
 		function updatePercentage() {
 			$.get('statisticsGet', function(data) {
-				$('#Percent1').html(data.value1);
-				$('#Percent2').html(data.value2);
+				$('#Percent1').html(data.value1.toFixed(2)).css('background-color', colorFromValue(data.value1));
+				$('#Percent2').html(data.value2.toFixed(2)).css('background-color', colorFromValue(data.value2));
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				alert("Error" + errorThrown);
 			});
@@ -27,12 +42,9 @@
 				alert("Error" + errorThrown);
 			});
 		}
-		$("#flip-1").change(function(){
-			$("#list").toggle();
+		$("#flip-1").bind("change", function(event, ui) {
+			$("#List").toggle();
 		});
-
-		
-		
 	});
 </script>
 </head>
@@ -45,10 +57,8 @@
 			</div>
 			<!-- /header -->
 
-			<div data-role="content" id="Percent1">
-				<input style="background-color: #;">			
-			</div>
-			<div data-role="content" id="Percent2"></div>
+			<h1 id="Percent1" style="text-align: center"></h1>
+			<h1 id="Percent2" style="text-align: center"></h1>
 
 			<div data-role="content" id="QuestionList">
 				<ul id="List">

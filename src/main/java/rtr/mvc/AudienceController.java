@@ -32,8 +32,8 @@ public class AudienceController {
 	}
 	
 	@RequestMapping(value="/audienceResponse", method=RequestMethod.POST)
-	public @ResponseBody HttpStatus postChangeSlider(@RequestParam("value") String value, HttpServletRequest request) {
-		receptiveness.updateReceptiveness((String) request.getSession().getAttribute("courseId"), request.getSession().getId(), Integer.parseInt(value), 3);
+	public @ResponseBody HttpStatus postChangeSlider(@RequestParam("value1") String value1, @RequestParam("value2") String value2, HttpServletRequest request) {
+		receptiveness.updateReceptiveness((String) request.getSession().getAttribute("courseId"), request.getSession().getId(), Integer.parseInt(value1), Integer.parseInt(value2));
 		return HttpStatus.ACCEPTED;
 	}
 	
