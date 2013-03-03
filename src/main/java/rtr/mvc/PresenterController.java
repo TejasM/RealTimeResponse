@@ -27,13 +27,13 @@ public class PresenterController {
 	private QuestionDatabase questionDatabase;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/startPresentation")
-	public void initalize(HttpServletRequest request, Model model) {
+	public void initalize(HttpServletRequest request) {
 		receptiveness.startTrackingSession((String)request.getSession().getAttribute("courseId"));
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/startPresentation")
-	public String start(HttpServletRequest request, Model model) {
-		return "redirect:statistics";
+	public String start(HttpServletRequest request) {
+		return "redirect:/presenter/statistics";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/statistics")	 

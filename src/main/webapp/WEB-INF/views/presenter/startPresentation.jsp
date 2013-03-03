@@ -6,7 +6,6 @@
 	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
 </head>
-
 <body>
 	<div data-role="page">
 		<div id="container">
@@ -36,7 +35,7 @@
 
 			<!--start session -->
 			<div data-role="content">
-				<form action="presenter/startPresentation">
+				<form method="POST" action="presenter/startPresentation">
 					<input type="submit" value="Start Session" />
 				</form>
 			</div>
