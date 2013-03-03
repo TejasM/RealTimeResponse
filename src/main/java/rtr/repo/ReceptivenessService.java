@@ -57,7 +57,10 @@ public class ReceptivenessService implements ReceptivenessInterface {
 	 */
 	@Override
 	public void updateReceptiveness(String courseId, String studentId, int change1, int change2){ 
-		getMap().get(courseId).get(studentId).add(new Point(new Date(), change1, change2));
+		Map<String, List<Point>> map = getMap().get(courseId);
+		if (map != null) {
+			map.get(studentId).add(new Point(new Date(), change1, change2));
+		}
 	}
 
 	public Map<String, Map<String, List<Point>>> getMap() {

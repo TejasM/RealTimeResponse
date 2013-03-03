@@ -36,7 +36,7 @@ public class LoginController {
 		if (isTeacher.equals("Yes")) {
 			return "presenter/startPresentation";
 		} else {
-			return "audience/startAudience";
+			return "audience/startAudienceSplash";
 		}
 	}
 }
