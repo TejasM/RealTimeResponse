@@ -1,35 +1,35 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:template>
-    <jsp:attribute name="header">
-    </jsp:attribute>
-    <jsp:attribute name="footer">
-    </jsp:attribute>
-    <jsp:body>
-	<div id="box">
-		<form method="POST" action="">
-			<table>
-				<tr>
-					<td align="right"><p id="text">User Id:</p></td>
-					<td align="left"><input type="text" name="username">
-					</td>
-				</tr>
-				<tr>
-					<td align="right"><p id="text">Course Code:</p></td>
-					<td align="left"><input type="password" name="courseCode"></td>
-				</tr>
-				<tr>
-					<td align="right"><p id="text">Teacher:</p></td>
-					<td align="left"><input type="text" name="isTeacher" value="Yes"/></td>
-				</tr>
-				<tr>
-					<td align="right"><input type="submit" value="Log In"></td>
-					<td align="left"><input type="reset" value="Reset"></td>
-				</tr>
-			</table>
-		</form>
-	</div>   
-	 </jsp:body>
-</t:template>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />		
+	</head>
+    <body>    	
+		<div data-role="page" >
+		    <form method="POST" action="">
+				<div id="container" />
+				<div data-role="content" id="LoginContainer" data-role="fieldcontain">
+					<label for="Login">Login:</label>
+					<input type="text" name="Login" id="Login" value=""  />
+				</div>
+				
+				<div data-role="content" id="PasswordContainer" data-role="fieldcontain">
+					<label for="Password">Course Code:</label>
+					<input type="text" name="Password" id="Password" value=""  />
+				</div>
+				
+				<div data-role="content" id="IsTeacherContainer" data-role="fieldcontain">
+					<label for="IsTeacher">Teacher:</label>
+					<input type="text" name="IsTeacher" id="IsTeacher" value="Yes"/>
+				</div>
+				
+				<div data-role="content" >				
+					<input type="submit" value="Submit Button" />
+				</div>
+			</form>
+		</div>
+	 </body>
+</html>

@@ -2,7 +2,6 @@ package rtr.repo;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -32,41 +31,34 @@ public class ReceptivenessService implements ReceptivenessInterface {
 				totalReceptiveness = summarizePoints(totalReceptiveness, points, date);
 			}
 		}
+		//totalReceptiveness.toPercentage();
 		return totalReceptiveness;
 	}
 	
 	private Receptiveness summarizePoints(Receptiveness toReceptiveness, List<Point> points, Date date){
-		int sum1 = 0;
-		int sum2 = 0;
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.MINUTE, -interval);
-		Date compareDate = cal.getTime();
-		int count = 0;
+		double sum1 = 0;
+		double sum2 = 0;
 		for (Point point: points){
-			if (point.getTimestamp().before(compareDate)){
-				break;
-			}
-			count++;
 			sum1 += point.getValue1();
 			sum2 += point.getValue2();
 		}
-		return toReceptiveness.combine(new Receptiveness(sum1/count, sum2/count));
+		return toReceptiveness.combine(new Receptiveness(sum1, sum2));
 	}
-		
+	
 	/* (non-Javadoc)
 	 * @see rtr.repo.ReceptivenessInterface#updateReceptiveness(java.lang.String, java.lang.String, int, int)
 	 */
 	@Override
-	public void updateReceptiveness(String courseId, String studentId, int value1, int value2){
-		List<Point> points = getMap().get(courseId).get(studentId);
-		int prevPoint1 = 3;
-		if (points==null){
-			points = new ArrayList<Point>();
-			getMap().get(courseId).put(studentId, points);
-		} else{
-			prevPoint1 = points.get(points.size()-1).getValue1();
+	public void updateReceptiveness(String courseId, String studentId, int change1, int change2){ 
+		Map<String, List<Point>> innerMap = getMap().get(courseId);
+		if (innerMap == null) {			
+			innerMap = new HashMap<String, List<Point>>();
+			map.put(courseId, innerMap);
 		}
-		points.add(new Point(new Date(), value1-prevPoint1,0));
+		if(!innerMap.containsKey(studentId)){
+			innerMap.put(studentId, new ArrayList<Point>());
+		}
+		innerMap.get(studentId).add(new Point(new Date(), change1, change2));
 	}
 
 	public Map<String, Map<String, List<Point>>> getMap() {
@@ -75,10 +67,5 @@ public class ReceptivenessService implements ReceptivenessInterface {
 
 	public void setMap(Map<String, Map<String, List<Point>>> map) {
 		this.map = map;
-	}
-
-	@Override
-	public void startTrackingSession(String courseId) {
-		map.put(courseId, new HashMap<String, List<Point>>());
 	}
 }

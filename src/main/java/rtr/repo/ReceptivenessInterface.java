@@ -16,6 +16,4 @@ public interface ReceptivenessInterface {
 	public abstract Map<String, Map<String, List<Point>>> getMap();
 	
 	public abstract void setMap(Map<String, Map<String, List<Point>>> map);
-
-	public abstract void startTrackingSession(String courseId);
 }
